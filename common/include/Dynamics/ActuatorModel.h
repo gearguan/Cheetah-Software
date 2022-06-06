@@ -54,7 +54,7 @@ class ActuatorModel {
   T getTorque(T tauDes, T qd) {
     // compute motor torque
     T tauDesMotor = tauDes / _gr;        // motor torque
-    T iDes = tauDesMotor / (_kt * 1.5);  // i = tau / KT
+    T iDes = tauDesMotor / (_kt * 1.5);  // i = tau / KT 电枢电流 armature current？ 
     // T bemf =  qd * _gr * _kt * 1.732;     // back emf 反电动势（counter emf或back emf）是指有反抗电流通过趋势的电动势，其本质上属于感应电动势。
     T bemf = qd * _gr * _kt * 2.;       // back emf
     T vDes = iDes * _R + bemf;          // v = I*R + emf
