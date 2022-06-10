@@ -21,25 +21,26 @@ class ActuatorModel {
 
   /*!
    * Construct a new actuator model with the given parameters
-   * @param gearRatio : Gear reduction 减速比
-   * @param motorKT : Value of KT (torque constant) for the motor 电机扭矩常数(转矩系数) Kt
-   * @param motorR : Motor resistance 电机电阻
-   * @param batteryV : Battery voltage 电源电压
-   * @param damping : Actuator damping (at the joint, Nm/(rad/sec)) 黏性阻尼系数
-   // 在无刷直流电机中，黏性阻尼系数D 是一个重要参数。1.它表示了电机机械特性的硬度，D越大，机械特性硬度越硬，负载转矩单位增量引起的转速下降越小；
-   // 2.D越大，电机响应越快；3.D越大，电磁效率越高。  
-   * @param dryFriction : Actuator dry friction (at the joint, Nm)
-   * @param tauMax : Maximum torque output of the actuator
+   * @param gearRatio
+   * @param motorKT
+   * @param motorR
+   * @param batteryV
+   * @param damping  
+   * @param dryFriction
+   * @param tauMax
    */
   ActuatorModel(T gearRatio, T motorKT, T motorR, T batteryV, T damping,
                 T dryFriction, T tauMax)
-      : _gr(gearRatio),
-        _kt(motorKT),
-        _R(motorR),
-        _V(batteryV),
-        _damping(damping),
-        _dryFriction(dryFriction),
-        _tauMax(tauMax) {}
+      : _gr(gearRatio),                 // Gear reduction 减速比
+        _kt(motorKT),                   // Value of KT (torque constant) for the motor 电机扭矩常数(转矩系数) Kt
+        _R(motorR),                     // Motor resistance 电机电阻
+        _V(batteryV),                   // Battery voltage 电源电压
+        _damping(damping),              // Actuator damping (at the joint, Nm/(rad/sec)) 黏性阻尼系数
+                                        // 在无刷直流电机中，黏性阻尼系数D 是一个重要参数。
+                                        // 1.它表示了电机机械特性的硬度，D越大，机械特性硬度越硬，负载转矩单位增量引起的转速下降越小；
+                                        // 2.D越大，电机响应越快；3.D越大，电磁效率越高。
+        _dryFriction(dryFriction),      // Actuator dry friction (at the joint, Nm)
+        _tauMax(tauMax) {}              // Maximum torque output of the actuator
 
   ActuatorModel() {}
 
